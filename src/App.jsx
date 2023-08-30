@@ -8,7 +8,6 @@ import PageNav from "./components/PageNav";
 function App() {
   return (
     <BrowserRouter>
-      <PageNav />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/product" element={<Product />} />
