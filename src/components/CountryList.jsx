@@ -12,7 +12,7 @@ function CountryList({ isLoading, cities }) {
       />
     );
 
-  const countries = cities.reducer((arr, city) => {
+  const countries = cities.reduce((arr, city) => {
     if (arr.map((el) => el.country).includes(city.country)) {
       return [...arr, { country: city.country, emoji: city.emoji }];
     } else return arr;
