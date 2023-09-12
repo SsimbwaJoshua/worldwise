@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import styles from "./Form.module.css";
 import Button from "./Button";
 import BackButton from "./BackButton";
-import { useUrlPocation } from "../Hooks/useUrlPosition";
+import { UseUrlPosition } from "../Hooks/useUrlPosition";
 import Message from "./Message";
 import Spinner from "./Spinner";
 
@@ -20,7 +20,7 @@ export function convertToEmoji(countryCode) {
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
-  const [lat, lng] = useUrlPocation();
+  const [lat, lng] = UseUrlPosition();
 
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");

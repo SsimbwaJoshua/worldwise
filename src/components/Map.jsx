@@ -11,7 +11,7 @@ import {
 import { useEffect, useState } from "react";
 import { useCities } from "../Contexts/CitiesContexts";
 import { useGeolocation } from "../Hooks/useGeolocation";
-import { useUrlPocation } from "../Hooks/useUrlPosition";
+import { UseUrlPosition } from "../Hooks/useUrlPosition";
 
 import Button from "./Button";
 
@@ -25,7 +25,7 @@ function Map() {
     getPosition,
   } = useGeolocation();
 
-  const [mapLat, mapLng] = useUrlPocation();
+  const [mapLat, mapLng] = UseUrlPosition();
 
   useEffect(
     function () {
