@@ -48,7 +48,7 @@ function Form() {
           const res = await fetch(
             `${BASE_URL}? latitudes=${lat}&longitude=${lng}`
           );
-          const data = await Response.json();
+          const data = await res.json();
 
           if (!data.countryCode)
             throw new Error(
