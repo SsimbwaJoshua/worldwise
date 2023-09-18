@@ -1,10 +1,12 @@
 import { createContext, useContext, useReducer } from "react";
 
 const AuthContext = createContext();
+
 const initialState = {
   user: null,
   isAuthenticated: false,
 };
+
 function reducer(state, action) {
   switch (action.type) {
     case "login":
@@ -23,8 +25,11 @@ const FAKE_USER = {
   avatar: "https://i.pravatar.cc/100?u=zz",
 };
 
-function AuthProvider({ childern }) {
-  const [{ user, isAuthenticated }, dispatch] = useReducer;
+function AuthProvider({ children }) {
+  const [{ user, isAuthenticated }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   function login(email, password) {
     if (email === FAKE_USER.email && password === FAKE_USER.password)
@@ -34,9 +39,10 @@ function AuthProvider({ childern }) {
   function logout() {
     dispatch({ type: "logout" });
   }
+
   return (
     <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
-      {childern}
+      {children}
     </AuthContext.Provider>
   );
 }
